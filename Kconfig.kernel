@@ -2258,6 +2258,10 @@ config INPUT
     bool
     default y
 
+config INPUT_FF_MEMLESS
+    bool
+    default y
+
 config INPUT_POLLDEV
     bool
     default y
@@ -2751,6 +2755,14 @@ config HID_GENERIC
     default y
 
 config HID_APPLE
+    bool
+    default y
+
+config HID_DRAGONRISE
+    bool
+    default y
+
+config DRAGONRISE_FF
     bool
     default y
 
