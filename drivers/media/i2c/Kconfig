@@ -213,7 +213,7 @@ config VIDEO_ADV7183
 	  module will be called adv7183.
 
 config VIDEO_ADV7604
-	depends on !BACKPORT_KERNEL_3_13
+	depends on !KERNEL_3_13
 	tristate "Analog Devices ADV7604 decoder"
 	depends on m
 	depends on VIDEO_V4L2 && I2C && VIDEO_V4L2_SUBDEV_API && MEDIA_CONTROLLER
@@ -311,16 +311,6 @@ config VIDEO_SAA711X
 
 	  To compile this driver as a module, choose M here: the
 	  module will be called saa7115.
-
-config VIDEO_SAA7191
-	tristate "Philips SAA7191 video decoder"
-	depends on m
-	depends on VIDEO_V4L2 && I2C
-	---help---
-	  Support for the Philips SAA7191 video decoder.
-
-	  To compile this driver as a module, choose M here: the
-	  module will be called saa7191.
 
 config VIDEO_TVP514X
 	tristate "Texas Instruments TVP514x video decoder"
@@ -453,6 +443,7 @@ config VIDEO_ADV7175
 	  module will be called adv7175.
 
 config VIDEO_ADV7343
+	depends on !KERNEL_3_4
 	tristate "ADV7343 video encoder"
 	depends on m
 	depends on I2C
@@ -576,7 +567,7 @@ config VIDEO_MT9M032
 	  models only.
 
 config VIDEO_MT9P031
-	depends on !BACKPORT_KERNEL_3_3
+	depends on !KERNEL_3_5
 	tristate "Aptina MT9P031 support"
 	depends on m
 	depends on I2C && VIDEO_V4L2 && VIDEO_V4L2_SUBDEV_API
@@ -587,7 +578,7 @@ config VIDEO_MT9P031
 	  (Micron) mt9p031 5 Mpixel camera.
 
 config VIDEO_MT9T001
-	depends on !BACKPORT_KERNEL_3_3
+	depends on !KERNEL_3_5
 	tristate "Aptina MT9T001 support"
 	depends on m
 	depends on I2C && VIDEO_V4L2 && VIDEO_V4L2_SUBDEV_API
@@ -607,7 +598,7 @@ config VIDEO_MT9V011
 	  em28xx driver.
 
 config VIDEO_MT9V032
-	depends on !BACKPORT_KERNEL_3_3
+	depends on !KERNEL_3_3
 	tristate "Micron MT9V032 sensor support"
 	depends on m
 	depends on I2C && VIDEO_V4L2 && VIDEO_V4L2_SUBDEV_API
@@ -626,7 +617,7 @@ config VIDEO_SR030PC30
 	  This driver supports SR030PC30 VGA camera from Siliconfile
 
 config VIDEO_NOON010PC30
-	depends on !BACKPORT_KERNEL_3_3
+	depends on !KERNEL_3_5
 	tristate "Siliconfile NOON010PC30 sensor support"
 	depends on m
 	depends on I2C && VIDEO_V4L2 && VIDEO_V4L2_SUBDEV_API
@@ -637,7 +628,8 @@ config VIDEO_NOON010PC30
 source "drivers/media/i2c/m5mols/Kconfig"
 
 config VIDEO_S5K6AA
-	depends on !BACKPORT_KERNEL_3_3
+	depends on !KERNEL_3_3
+	depends on !KERNEL_3_13
 	tristate "Samsung S5K6AAFX sensor support"
 	depends on m
 	depends on MEDIA_CAMERA_SUPPORT
@@ -647,7 +639,7 @@ config VIDEO_S5K6AA
 	  camera sensor with an embedded SoC image signal processor.
 
 config VIDEO_S5K6A3
-	depends on !BACKPORT_KERNEL_3_3
+	depends on !KERNEL_3_13
 	tristate "Samsung S5K6A3 sensor support"
 	depends on m
 	depends on MEDIA_CAMERA_SUPPORT
@@ -657,7 +649,7 @@ config VIDEO_S5K6A3
 	  camera sensor.
 
 config VIDEO_S5K4ECGX
-	depends on !BACKPORT_KERNEL_3_3
+	depends on !KERNEL_3_4
         tristate "Samsung S5K4ECGX sensor support"
         depends on m
         depends on I2C && VIDEO_V4L2 && VIDEO_V4L2_SUBDEV_API
@@ -666,7 +658,7 @@ config VIDEO_S5K4ECGX
           camera sensor with an embedded SoC image signal processor.
 
 config VIDEO_S5K5BAF
-	depends on !BACKPORT_KERNEL_3_3
+	depends on !KERNEL_3_4
 	tristate "Samsung S5K5BAF sensor support"
 	depends on m
 	depends on I2C && VIDEO_V4L2 && VIDEO_V4L2_SUBDEV_API
@@ -677,7 +669,7 @@ config VIDEO_S5K5BAF
 source "drivers/media/i2c/smiapp/Kconfig"
 
 config VIDEO_S5C73M3
-	depends on !BACKPORT_KERNEL_3_3
+	depends on !KERNEL_3_6
 	tristate "Samsung S5C73M3 sensor support"
 	depends on m
 	depends on I2C && SPI && VIDEO_V4L2 && VIDEO_V4L2_SUBDEV_API
@@ -706,7 +698,7 @@ config VIDEO_AS3645A
 	  build in control for flash, torch and indicator LEDs.
 
 config VIDEO_LM3560
-	depends on !BACKPORT_KERNEL_3_3
+	depends on !KERNEL_3_3
 	tristate "LM3560 dual flash driver support"
 	depends on m
 	depends on I2C && VIDEO_V4L2 && MEDIA_CONTROLLER
@@ -717,7 +709,7 @@ config VIDEO_LM3560
 	  flash, torch LEDs.
 
 config VIDEO_LM3646
-	depends on !BACKPORT_KERNEL_3_3
+	depends on !KERNEL_3_3
 	tristate "LM3646 dual flash driver support"
 	depends on m
 	depends on I2C && VIDEO_V4L2 && MEDIA_CONTROLLER

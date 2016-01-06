@@ -1,6 +1,6 @@
 config SOC_CAMERA
-	depends on !BACKPORT_KERNEL_3_4
-	depends on !BACKPORT_KERNEL_3_5
+	depends on !KERNEL_3_4
+	depends on !KERNEL_3_5
 	tristate "SoC camera support"
 	depends on m
 	depends on VIDEO_V4L2 && HAS_DMA && I2C

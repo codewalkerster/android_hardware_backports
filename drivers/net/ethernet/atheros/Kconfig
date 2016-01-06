@@ -23,7 +23,7 @@ config ATL2
 	depends on m
 	depends on PCI
 	depends on CRC32
-	select BACKPORT_MII
+	select BPAUTO_MII
 	---help---
 	  This driver supports the Atheros L2 fast ethernet adapter.
 
@@ -35,7 +35,7 @@ config ATL1
 	depends on m
 	depends on PCI
 	depends on CRC32
-	select BACKPORT_MII
+	select BPAUTO_MII
 	---help---
 	  This driver supports the Atheros/Attansic L1 gigabit ethernet
 	  adapter.
@@ -48,7 +48,7 @@ config ATL1E
 	depends on m
 	depends on PCI
 	depends on CRC32
-	select BACKPORT_MII
+	select BPAUTO_MII
 	---help---
 	  This driver supports the Atheros L1E gigabit ethernet adapter.
 
@@ -56,12 +56,12 @@ config ATL1E
 	  will be called atl1e.
 
 config ATL1C
-	depends on !BACKPORT_KERNEL_3_5
+	depends on !KERNEL_3_5
 	tristate "Atheros L1C Gigabit Ethernet support"
 	depends on m
 	depends on PCI
 	depends on CRC32
-	select BACKPORT_MII
+	select BPAUTO_MII
 	---help---
 	  This driver supports the Atheros L1C gigabit ethernet adapter.
 

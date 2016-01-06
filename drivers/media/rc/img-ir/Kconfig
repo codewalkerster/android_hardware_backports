@@ -1,8 +1,9 @@
 config IR_IMG
-	depends on !BACKPORT_KERNEL_3_5
+	depends on !KERNEL_3_5
 	tristate "ImgTec IR Decoder"
 	depends on m
 	depends on RC_CORE
+	depends on METAG || MIPS || COMPILE_TEST
 	select IR_IMG_HW if !IR_IMG_RAW
 	help
 	   Say Y or M here if you want to use the ImgTec infrared decoder

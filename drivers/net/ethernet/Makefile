@@ -65,6 +65,7 @@ obj-$(CPTCFG_NET_VENDOR_INTEL) += intel/
 #obj-$(CONFIG_NET_VENDOR_REALTEK) += realtek/
 #obj-$(CONFIG_SH_ETH) += renesas/
 #obj-$(CONFIG_NET_VENDOR_RDC) += rdc/
+#obj-$(CONFIG_NET_VENDOR_ROCKER) += rocker/
 #obj-$(CPTCFG_S6GMAC) += s6gmac.o
 #obj-$(CONFIG_NET_VENDOR_SAMSUNG) += samsung/
 #obj-$(CONFIG_NET_VENDOR_SEEQ) += seeq/

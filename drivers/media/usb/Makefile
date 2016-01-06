@@ -16,7 +16,6 @@ obj-$(CPTCFG_VIDEO_CPIA2) += cpia2/
 obj-$(CPTCFG_VIDEO_AU0828) += au0828/
 obj-$(CPTCFG_VIDEO_HDPVR)	+= hdpvr/
 obj-$(CPTCFG_VIDEO_PVRUSB2) += pvrusb2/
-obj-$(CPTCFG_VIDEO_TLG2300) += tlg2300/
 obj-$(CPTCFG_VIDEO_USBVISION) += usbvision/
 obj-$(CPTCFG_VIDEO_STK1160) += stk1160/
 obj-$(CPTCFG_VIDEO_CX231XX) += cx231xx/

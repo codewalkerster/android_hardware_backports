@@ -90,7 +90,7 @@ config JME
 	depends on m
 	depends on PCI
 	depends on CRC32
-	select BACKPORT_MII
+	select BPAUTO_MII
 	---help---
 	  This driver supports the PCI-Express gigabit ethernet adapters
 	  based on JMicron JMC250 chipset.
@@ -128,7 +128,7 @@ config FEALNX
 	depends on m
 	depends on PCI
 	depends on CRC32
-	select BACKPORT_MII
+	select BPAUTO_MII
 	---help---
 	  Say Y here to support the Myson MTD-800 family of PCI-based Ethernet
 	  cards. <http://www.myson.com.tw/>
@@ -140,7 +140,7 @@ config NET_NETX
 	depends on n
 	tristate "NetX Ethernet support"
 	depends on m
-	select BACKPORT_MII
+	select BPAUTO_MII
 	depends on ARCH_NETX
 	---help---
 	  This is support for the Hilscher netX builtin Ethernet ports
@@ -159,7 +159,7 @@ config ETHOC
 	tristate "OpenCores 10/100 Mbps Ethernet MAC support"
 	depends on m
 	depends on HAS_IOMEM && HAS_DMA
-	select BACKPORT_MII
+	select BPAUTO_MII
 	depends on PHYLIB
 	depends on CRC32
 	depends on BITREVERSE
@@ -173,6 +173,7 @@ config ETHOC
 #source "drivers/net/ethernet/realtek/Kconfig"
 #source "drivers/net/ethernet/renesas/Kconfig"
 #source "drivers/net/ethernet/rdc/Kconfig"
+#source "drivers/net/ethernet/rocker/Kconfig"
 
 config S6GMAC
 	depends on n
