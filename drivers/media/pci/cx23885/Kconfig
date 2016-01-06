@@ -1,5 +1,5 @@
 config VIDEO_CX23885
-	depends on !BACKPORT_KERNEL_3_4
+	depends on !KERNEL_3_4
 	tristate "Conexant cx23885 (2388x successor) support"
 	depends on m
 	depends on DVB_CORE && VIDEO_DEV && PCI && I2C && INPUT && SND

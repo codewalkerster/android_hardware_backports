@@ -223,6 +223,7 @@ config BT_MRVL_SDIO
 	depends on m
 	depends on BT_MRVL && MMC
 	depends on FW_LOADER
+	select BPAUTO_WANT_DEV_COREDUMP
 	help
 	  The driver for Marvell Bluetooth chipsets with SDIO interface.
 

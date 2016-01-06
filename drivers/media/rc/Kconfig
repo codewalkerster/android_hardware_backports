@@ -179,7 +179,7 @@ config IR_ENE
 	   module will be called ene_ir.
 
 config IR_HIX5HD2
-	depends on !BACKPORT_KERNEL_3_7
+	depends on !KERNEL_3_7
 	depends on CONFIG_MFD_SYSCON
 	tristate "Hisilicon hix5hd2 IR remote control"
 	depends on m
@@ -244,6 +244,18 @@ config IR_FINTEK
 	   To compile this driver as a module, choose M here: the
 	   module will be called fintek-cir.
 
+config IR_MESON
+	tristate "Amlogic Meson IR remote receiver"
+	depends on m
+	depends on RC_CORE
+	depends on ARCH_MESON || COMPILE_TEST
+	---help---
+	   Say Y if you want to use the IR remote receiver available
+	   on Amlogic Meson SoCs.
+
+	   To compile this driver as a module, choose M here: the
+	   module will be called meson-ir.
+
 config IR_NUVOTON
 	tristate "Nuvoton w836x7hg Consumer Infrared Transceiver"
 	depends on m
@@ -263,8 +275,8 @@ config IR_REDRAT3
 	depends on m
 	depends on USB_ARCH_HAS_HCD
 	depends on RC_CORE
-	select BACKPORT_NEW_LEDS
-	select BACKPORT_LEDS_CLASS
+	select BPAUTO_NEW_LEDS
+	select BPAUTO_LEDS_CLASS
 	depends on USB
 	---help---
 	   Say Y here if you want to use a RedRat3 Infrared Transceiver.
@@ -290,8 +302,8 @@ config IR_WINBOND_CIR
 	depends on m
 	depends on X86 && PNP
 	depends on RC_CORE
-	select BACKPORT_NEW_LEDS
-	select BACKPORT_LEDS_CLASS
+	select BPAUTO_NEW_LEDS
+	select BPAUTO_LEDS_CLASS
 	depends on BITREVERSE
 	---help---
 	   Say Y here if you want to use the IR remote functionality found
@@ -301,6 +313,22 @@ config IR_WINBOND_CIR
 
 	   To compile this driver as a module, choose M here: the module will
 	   be called winbond_cir.
+
+config IR_IGORPLUGUSB
+	tristate "IgorPlug-USB IR Receiver"
+	depends on m
+	depends on USB_ARCH_HAS_HCD
+	depends on RC_CORE
+	depends on USB
+	---help---
+	   Say Y here if you want to use the IgorPlug-USB IR Receiver by
+	   Igor Cesko. This device is included on the Fit-PC2.
+
+	   Note that this device can only record bursts of 36 IR pulses and
+	   spaces, which is not enough for the NEC, Sanyo and RC-6 protocol.
+
+	   To compile this driver as a module, choose M here: the module will
+	   be called igorplugusb.
 
 config IR_IGUANA
 	tristate "IguanaWorks USB IR Transceiver"
@@ -325,8 +353,8 @@ config IR_TTUSBIR
 	depends on USB_ARCH_HAS_HCD
 	depends on RC_CORE
 	depends on USB
-	select BACKPORT_NEW_LEDS
-	select BACKPORT_LEDS_CLASS
+	select BPAUTO_NEW_LEDS
+	select BPAUTO_LEDS_CLASS
 	---help---
 	   Say Y here if you want to use the TechnoTrend USB IR Receiver. The
 	   driver can control the led.

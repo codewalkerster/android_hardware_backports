@@ -11,7 +11,8 @@ obj-y        +=	ttpci/		\
 		mantis/		\
 		ngene/		\
 		ddbridge/	\
-		saa7146/
+		saa7146/	\
+		smipcie/
 
 obj-$(CPTCFG_VIDEO_IVTV) += ivtv/
 obj-$(CPTCFG_VIDEO_ZORAN) += zoran/
