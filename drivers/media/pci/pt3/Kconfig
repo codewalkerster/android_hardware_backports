@@ -1,5 +1,5 @@
 config DVB_PT3
-	depends on !BACKPORT_KERNEL_3_3
+	depends on !KERNEL_3_3
 	tristate "Earthsoft PT3 cards"
 	depends on m
 	depends on DVB_CORE && PCI && I2C

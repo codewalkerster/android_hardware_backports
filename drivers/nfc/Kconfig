@@ -29,7 +29,7 @@ config NFC_WILINK
 	  into the kernel or say M to compile it as module.
 
 config NFC_TRF7970A
-	depends on !BACKPORT_KERNEL_3_4
+	depends on !KERNEL_3_4
 	tristate "Texas Instruments TRF7970a NFC driver"
 	depends on m
 	depends on SPI && NFC_DIGITAL
@@ -43,7 +43,7 @@ config NFC_TRF7970A
 	  trf7970a.ko.
 
 config NFC_MEI_PHY
-	depends on !BACKPORT_KERNEL_3_10
+	depends on !KERNEL_3_10
 	tristate "MEI bus NFC device support"
 	depends on m
 	depends on INTEL_MEI && NFC_HCI

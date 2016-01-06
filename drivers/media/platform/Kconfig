@@ -58,7 +58,7 @@ config VIDEO_VIU
 	  In doubt, say N.
 
 config VIDEO_TIMBERDALE
-	depends on !BACKPORT_KERNEL_3_4
+	depends on !KERNEL_3_4
 	tristate "Support for timberdale Video In/LogiWIN"
 	depends on m
 	depends on VIDEO_V4L2 && I2C && DMADEVICES
@@ -69,15 +69,6 @@ config VIDEO_TIMBERDALE
 	select VIDEOBUF_DMA_CONTIG
 	---help---
 	  Add support for the Video In peripherial of the timberdale FPGA.
-
-config VIDEO_VINO
-	tristate "SGI Vino Video For Linux"
-	depends on m
-	depends on I2C && SGI_IP22 && VIDEO_V4L2
-	select VIDEO_SAA7191 if MEDIA_SUBDRV_AUTOSELECT
-	help
-	  Say Y here to build in support for the Vino video input system found
-	  on SGI Indy machines.
 
 config VIDEO_M32R_AR
 	tristate "AR devices"
@@ -122,7 +113,7 @@ config VIDEO_S3C_CAMIF
 	tristate "Samsung S3C24XX/S3C64XX SoC Camera Interface driver"
 	depends on m
 	depends on VIDEO_V4L2 && I2C && VIDEO_V4L2_SUBDEV_API
-	depends on PM_RUNTIME
+	depends on PM
 	depends on ARCH_S3C64XX || PLAT_S3C24XX || COMPILE_TEST
 	depends on HAS_DMA
 	select VIDEOBUF2_DMA_CONTIG
@@ -166,7 +157,7 @@ config VIDEO_CODA
 	   H.264, MPEG-4, and other video formats.
 
 config VIDEO_MEM2MEM_DEINTERLACE
-	depends on !BACKPORT_KERNEL_3_3
+	depends on !KERNEL_3_3
 	tristate "Deinterlace support"
 	depends on m
 	depends on VIDEO_DEV && VIDEO_V4L2 && DMA_ENGINE
@@ -248,7 +239,7 @@ config VIDEO_SH_VEU
 	    SH-Mobile SoCs.
 
 config VIDEO_RENESAS_VSP1
-	depends on !BACKPORT_KERNEL_3_4
+	depends on !KERNEL_3_4
 	tristate "Renesas VSP1 Video Processing Engine"
 	depends on m
 	depends on VIDEO_V4L2 && VIDEO_V4L2_SUBDEV_API && HAS_DMA
@@ -289,8 +280,8 @@ if V4L_TEST_DRIVERS
 
 source "drivers/media/platform/vivid/Kconfig"
 
-config VIDEO_MEM2MEM_TESTDEV
-	tristate "Virtual test device for mem2mem framework"
+config VIDEO_VIM2M
+	tristate "Virtual Memory-to-Memory Driver"
 	depends on m
 	depends on VIDEO_DEV && VIDEO_V4L2
 	select VIDEOBUF2_VMALLOC
