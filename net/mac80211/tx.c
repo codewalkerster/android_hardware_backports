@@ -815,6 +815,8 @@ ieee80211_tx_h_sequence(struct ieee80211_tx_data *tx)
 		/* for pure STA mode without beacons, we can do it */
 		hdr->seq_ctrl = cpu_to_le16(tx->sdata->sequence_number);
 		tx->sdata->sequence_number += 0x10;
+		if (tx->sta)
+			tx->sta->tx_msdu[IEEE80211_NUM_TIDS]++;
 		return TX_CONTINUE;
 	}
 
@@ -831,6 +833,7 @@ ieee80211_tx_h_sequence(struct ieee80211_tx_data *tx)
 	qc = ieee80211_get_qos_ctl(hdr);
 	tid = *qc & IEEE80211_QOS_CTL_TID_MASK;
 	seq = &tx->sta->tid_seq[tid];
+	tx->sta->tx_msdu[tid]++;
 
 	hdr->seq_ctrl = cpu_to_le16(*seq);
 
@@ -2093,7 +2096,6 @@ static struct sk_buff *ieee80211_build_hdr(struct ieee80211_sub_if_data *sdata,
 		goto free;
 	}
 
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3,3,0))
 	if (unlikely(!multicast && skb->sk &&
 		     skb_shinfo(skb)->tx_flags & SKBTX_WIFI_STATUS)) {
 		struct sk_buff *ack_skb = skb_clone_sk(skb);
@@ -2115,7 +2117,6 @@ static struct sk_buff *ieee80211_build_hdr(struct ieee80211_sub_if_data *sdata,
 			}
 		}
 	}
-#endif
 
 	/*
 	 * If the skb is shared we need to obtain our own copy.
@@ -3154,7 +3155,7 @@ int ieee80211_reserve_tid(struct ieee80211_sta *pubsta, u8 tid)
 	}
 
 	queues = BIT(sdata->vif.hw_queue[ieee802_1d_to_ac[tid]]);
-	__ieee80211_flush_queues(local, sdata, queues);
+	__ieee80211_flush_queues(local, sdata, queues, false);
 
 	sta->reserved_tid = tid;
 
