@@ -7500,7 +7500,6 @@ static int rt2800_probe_hw_mode(struct rt2x00_dev *rt2x00dev)
 	 */
 	rt2x00dev->hw->flags =
 	    IEEE80211_HW_SIGNAL_DBM |
-	    IEEE80211_HW_SUPPORTS_PS |
 	    IEEE80211_HW_PS_NULLFUNC_STACK |
 	    IEEE80211_HW_AMPDU_AGGREGATION |
 	    IEEE80211_HW_REPORTS_TX_ACK_STATUS |
