@@ -256,7 +256,6 @@ config RT2X00_LIB_USB
 config RT2X00_LIB
 	tristate
 	depends on m
-	select BPAUTO_AVERAGE
 
 config RT2X00_LIB_FIRMWARE
 	boolean
