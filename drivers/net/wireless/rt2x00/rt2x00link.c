@@ -33,15 +33,13 @@
  */
 #define DEFAULT_RSSI		-128
 
-static inline int rt2x00link_get_avg_rssi(struct ewma_rssi *ewma, struct rt2x00_dev *rt2x00dev)
+static inline int rt2x00link_get_avg_rssi(struct ewma_rssi *ewma)
 {
 	unsigned long avg;
 
 	avg = ewma_rssi_read(ewma);
 	if (avg)
 		return -avg;
-
-	rt2x00_warn(rt2x00dev, "DEFAULT_RSSI %d\n", DEFAULT_RSSI);
 
 	return DEFAULT_RSSI;
 }
