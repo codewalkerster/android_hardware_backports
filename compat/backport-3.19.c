@@ -64,22 +64,6 @@ long wait_woken(wait_queue_t *wait, unsigned mode, long timeout)
 }
 EXPORT_SYMBOL(wait_woken);
 
-int woken_wake_function(wait_queue_t *wait, unsigned mode, int sync, void *key)
-{
-	/*
-	 * Although this function is called under waitqueue lock, LOCK
-	 * doesn't imply write barrier and the users expects write
-	 * barrier semantics on wakeup functions.  The following
-	 * smp_wmb() is equivalent to smp_wmb() in try_to_wake_up()
-	 * and is paired with set_mb() in wait_woken().
-	 */
-	smp_wmb(); /* C */
-	wait->flags |= WQ_FLAG_WOKEN;
-
-	return default_wake_function(wait, mode, sync, key);
-}
-EXPORT_SYMBOL(woken_wake_function);
-
 #ifdef __BACKPORT_NETDEV_RSS_KEY_FILL
 u8 netdev_rss_key[NETDEV_RSS_KEY_LEN];
 
